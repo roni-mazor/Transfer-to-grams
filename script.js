@@ -11,6 +11,16 @@ const gSignsMap = {
     '⅓': '1/3',
     '⅔': '2/3',
 }
+const UnitRegexs = [
+    { unit: 'ounce', regex: /\d? ?\d?\/?\d ounce/ig },
+    { unit: 'pound', regex: /\d? ?\d?\/?\d pound/ig },
+    { unit: '-oz', regex: /\d? ?\d?\/?\d?-oz/ig },
+    { unit: 'oz', regex: /\d? ?\d?\/?\d? oz/ig },
+    { unit: 'tablespoon', regex: /\d? ?\d?\/?\d tablespoon/ig },
+    { unit: 'teaspoon', regex: /\d? ?\d?\/?\d teaspoon/ig },
+    { unit: 'cup', regex: /\d? ?\d?\/?\d cup/ig },
+    { unit: 'tsp', regex: /\d? ?\d?\/?\d tsp/ig },
+]
 findTextElements(document.body)
 // confronting numbers with the tiny guy and no spaces 
 function findTextElements(element) {
@@ -57,7 +67,6 @@ function swapSigns(string) {
     gSigns.forEach((sign) => {
         if (string.includes(sign)) {
 
-            // const regex = new RegExp('d', `${sign}`)
             const regex = /\d½|\d¼|\d¾|\d⅓|\d⅔/gi
             if (regex.test(string)) {
                 string = string.replace(sign, ` ${gSignsMap[sign]}`)
@@ -121,26 +130,11 @@ function toGrams(unit, string) {
 
 
 function getRegex(txt) {
-    let regex
-    // go in aloop with an object that contains the regex and the key is the unit
-    // if general regex returns true give a regex that is allso general
-
-    if (txt.includes('ounce')) {
-        regex = /\d? ?\d?\/?\d ounce/ig
-    } else if (txt.includes('pound')) {
-        regex = /\d? ?\d?\/?\d pound/ig
-    } else if (txt.includes('oz')) {
-        regex = /\d? ?\d?\/?\d oz/ig
-    } else if (txt.includes('cup')) {
-        regex = /\d? ?\d?\/?\d cup/ig
-    } else if (txt.includes('tablespoon')) {
-        regex = /\d? ?\d?\/?\d tablespoon/ig
-    } else if (txt.includes('teaspoon')) {
-        regex = /\d? ?\d?\/?\d teaspoon/ig
-    } else if (txt.includes('tsp')) {
-        regex = /\d? ?\d?\/?\d tsp/ig
+    const fittingRegex = UnitRegexs.find(({ unit }) => txt.includes(unit))
+    if (fittingRegex) {
+        console.log(fittingRegex)
+        return fittingRegex.regex
     }
-    return regex
 }
 
 function cupToGrams(txt) {
