@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "Transfer to grams",
+    "version": "1.0.0",
+    "author": "Roni Mazor",
+    "description": "An extension that changes all of the measurement to grams (cups, tsp, tablespoons, ounce and grams).If you are baking especially that could be very useful, just put everything on the scale,and weigh,it is more professional and exact,Happy cooking!!!. ",
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "script.js"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "imgs/icon16.png",
+        "48": "imgs/icon48.png",
+        "128": "imgs/icon128.png"
+    }
+}
