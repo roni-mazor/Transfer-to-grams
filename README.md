@@ -1,9 +1,12 @@
 # Transfer-to-grams
 A google chrome extension i built that loops through a website and try to replace all the non grams measurement to grams.
-**An before example** (taken from this website https://www.onceuponachef.com/recipes/key-lime-pie.html)
+If you find any problem or bug i would be very thankful if you report to me at ro6596@gmail.com
 
-![before transfer to grams cut](https://user-images.githubusercontent.com/16292843/198869869-3b073b48-9450-46a3-8798-8ada45c94934.png)
+**A before example** (taken from this website https://www.marthastewart.com/342396/yellow-butter-cake)
+![before](https://user-images.githubusercontent.com/16292843/198873119-cf0623a0-3670-493b-a9e0-700fbebeaee1.png)
+
 
 **And after the swap**
 
-![after](https://user-images.githubusercontent.com/16292843/198869874-39468e47-40ef-422a-a048-76ba50265e45.png)
+![after martha](https://user-images.githubusercontent.com/16292843/198873124-93e7bf8e-5452-4dd0-bd55-40fe8dd3dd00.png)
+
