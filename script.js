@@ -40,6 +40,7 @@ function replaceText(element, method, txt) {
     let regex = getRegex(modifiedTxt)
     if (regex) {
         const span = makeSpan(regex, modifiedTxt)
+        if (span.innerHTML.includes('NaN')) return
         if (method === REPLACE_CHILD_KEY) element.replaceChildren(span)
         else if (method === REPLACE_SELF_KEY) element.replaceWith(span)
         return true
@@ -138,49 +139,76 @@ function getRegex(txt) {
 }
 
 function cupToGrams(txt) {
+    txt = txt.toLowerCase()
     if (txt.includes('flour')) return 120
     else if (txt.includes('milk')) return 240
     else if (txt.includes('sugar')) return 200
     else if (txt.includes('oil')) return 225
     else if (txt.includes('butter')) return 227
     else if (txt.includes('yoghurt')) return 245
+    else if (txt.includes('yogurt')) return 245
     else if (txt.includes('water')) return 240
     else if (txt.includes('cornmeal')) return 180
     else if (txt.includes('buttermilk')) return 225
     else if (txt.includes('cream cheese')) return 225
+    else if (txt.includes('cheese')) return 130
     else if (txt.includes('chocolate chips')) return 170
     else if (txt.includes('chocolate')) return 225
-    else if (txt.includes('heavy cream')) return 240
+    else if (txt.includes('sour cream')) return 240
+    else if (txt.includes('mascarpone')) return 225
+    else if (txt.includes('cream')) return 240
     else if (txt.includes('baking soda')) return 208
     else if (txt.includes('baking powder')) return 208
     else if (txt.includes('vanilla extract')) return 208
-    else if (txt.includes('cornstarch')) return 122
+    else if (txt.includes('starch')) return 122
+    else if (txt.includes('wheat')) return 122
+    else if (txt.includes('rice')) return 210
     else if (txt.includes('cocoa')) return 80
     else if (txt.includes('powdered sugar')) return 110
     else if (txt.includes('salt')) return 273
     else if (txt.includes('zest')) return 96
+    else if (txt.includes('maple')) return 240
     else if (txt.includes('cinnamon')) return 125
     else if (txt.includes('lemon juice')) return 230
     else if (txt.includes('allspice')) return 96
+    else if (txt.includes('almond flour')) return 96
     else if (txt.includes('ginger')) return 97
     else if (txt.includes('carrot')) return 168
     else if (txt.includes('vinegar')) return 230
     else if (txt.includes('pecans')) return 125
+    else if (txt.includes('walnuts')) return 125
+    else if (txt.includes('almond')) return 150
+    else if (txt.includes('hazelnut')) return 130
+    else if (txt.includes('sesame')) return 142
+    else if (txt.includes('pistachios')) return 125
     else if (txt.includes('nutmeg')) return 112
     else if (txt.includes('cloves')) return 112
     else if (txt.includes('black pepper')) return 112
     else if (txt.includes('yeast')) return 150
+    else if (txt.includes('flax')) return 150
+    else if (txt.includes('blueberries')) return 150
+    else if (txt.includes('cranberries')) return 150
+    else if (txt.includes('strawberries')) return 150
+    else if (txt.includes('seed')) return 150
+    else if (txt.includes('banana')) return 150
     else if (txt.includes('raisins')) return 155
     else if (txt.includes('oat')) return 110
     else if (txt.includes('peanut butter')) return 250
     else if (txt.includes('honey')) return 340
     else if (txt.includes('lime juice')) return 230
     else if (txt.includes('orange juice')) return 230
+    else if (txt.includes('beer')) return 240
+    else if (txt.includes('molasse')) return 280
+    else if (txt.includes('currants')) return 144
+    else if (txt.includes('caraway')) return 100
+    else if (txt.includes('ricotta')) return 230
     else if (txt.includes('apple juice')) return 248
     else if (txt.includes('apple')) return 118
     else if (txt.includes('basil')) return 25
     else if (txt.includes('graham cracker')) return 120
-
+    else if (txt.includes('syrup')) return 180
+    else if (txt.includes('corn')) return 140
+    else if (txt.includes('xanthan gum')) return 80
 }
 
 
